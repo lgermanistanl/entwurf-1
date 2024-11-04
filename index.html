@@ -1,0 +1,318 @@
+<!--
+ __  __       ____  
+|  \/  |     / ___| 
+| \  / |    | | __  
+| |\/| |    | |(  | 
+| |  | |  _ | |_) |  _ 
+(_)  (_) (_) \____| (_)
+
+--> 
+<!DOCTYPE html>
+    <html lang="de,eng">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Germanistan Landing</title>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <style>
+            body {
+                margin: 0;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                max-width: 100%;
+                background: url('https://raw.githubusercontent.com/lgermanistanl/material/main/06511d5d01b766abea76e9c3b859c89b.jpg') no-repeat center center fixed;
+                background-size: 100% 100%;
+                font-family: 'Oswald', sans-serif;
+                cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black"><circle cx="12" cy="12" r="10"/></svg>') 12 12, auto;
+                overflow: hidden;
+                position: relative;
+            }
+            .button {
+                color: white;
+                padding: 10px 20px;
+                font-family: "Open sans", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 200;
+                font-style: normal;
+                font-size: 48px;
+                text-align: center;
+                text-decoration: none;
+                cursor: pointer;
+                display: inline-block;
+                transition: text-shadow 0.3s ease;
+            }
+            .button:hover {
+                text-shadow: 0 0 10px lightblue, 0 0 20px pink;
+            }
+ .overlay2 {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: calc(100% - 100px);
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+.overlay2-content {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    min-height: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+            .close-overlay2 {
+                position: absolute;
+                top: 40px;
+                right: 40px;
+                color: black;
+                font-size: 36px;
+                text-decoration: none;
+                padding: 20px;
+                cursor: pointer;
+                z-index: 1;
+            }
+            .close-overlay2:hover {
+                color: red;
+            }
+            .image-container {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .image-content {
+                width: 100%;
+                max-width: 500px;
+                min-width: 300px;
+                margin: 1px;
+                padding: 40px;
+                border: 0;
+            }
+            .navbar {
+                position: fixed;
+                top: 10px;
+                right: 0;
+                padding: 10px 10px;
+                background-color: white;
+                border: 2px solid black;
+                font-size: 16px;
+                z-index: 1002;
+                margin-right: 10px;
+                justify-content: center;
+                text-align: center;
+            }
+            .navbar a {
+                margin: 10px 20px;
+                text-decoration: none;
+                color: black;
+            }
+            .navbar a:hover {
+                color: red;
+            }
+            .footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+                font-family: "Open Sans", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 300;
+                font-style: italic;
+                text-align: left;
+                color: white;
+                font-size: 10px;
+                z-index: 1;
+                margin-left: 10px;
+            }
+            }
+            .footer:hover {
+            color: red;
+                        }
+            .rain {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                overflow: hidden;
+                z-index: 1;
+                opacity: 0.3;
+            }
+            
+            .rain div {
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: white;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 10px;
+                animation: fall linear infinite;
+                white-space: nowrap;
+            }
+            @keyframes fall {
+                0% { transform: translateY(0); }
+                100% { transform: translateY(100vh); }
+            }
+          .moods-button {
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                padding: 10px 20px;
+                border: 2px solid black;
+                background-color: white;
+                color: black;
+                font-family: 'Pinyon Script', cursive;
+                font-size: 16px;
+                text-decoration: none;
+                cursor: pointer;
+                z-index: 1000;
+            }
+            .moods-button:hover {
+                background-color: rgb(255, 0, 0);
+                color: white;
+            }
+            .carousel {
+                display: none;
+                position: fixed;
+                bottom: 10px;
+                left: 10px;
+                width: 200px;
+                height: 250px;
+                overflow: hidden;
+                background-color: rgba(255, 255, 255, 0.9);
+                border: 2px solid black;
+                z-index: 1001;
+ }
+            .carousel img {
+                width: 100%;
+                height: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="https://r2shine.de/archive">Archive</a>
+            <a href="https://r2shine.de/shop">Shop</a>
+            <a href="https://r2shine.de/about">Germanistan</a>
+        </div>
+    </div>
+<div class="carousel" id="carousel">
+            <img src="https://i.pinimg.com/474x/c0/ab/2b/c0ab2b5660b2b0bbc20722f6f975617f.jpg" alt="Moods Image 1">
+            <img src="https://i.pinimg.com/474x/8e/4f/e5/8e4fe5d2becb35b553e858d71bd69dbc.jpg" alt="Moods Image 2">
+            <img src="https://i.pinimg.com/474x/32/ad/a5/32ada551c23e67bcee6ce8fecc499c54.jpg" alt="Moods Image 3">
+            <img src="https://i.pinimg.com/474x/19/71/72/19717256ac9200f9c42aba214285d614.jpg" alt="Moods Image 4">
+            <img src="https://i.pinimg.com/474x/74/24/54/74245471edbced171d81999b2f034d56.jpg" alt="Moods Image 5">
+            <img src="https://i.pinimg.com/474x/91/a5/22/91a52299712a904c6152fa267f4909c2.jpg" alt="Moods Image 6">
+            </div>
+<a href="#" class="moods-button" onclick="toggleCarousel()">New Musica</a>
+     <div class="button-container">
+            <a href="#" class="button" onclick="toggleOverlay2()">Germanistan®</a>
+        <div class="overlay2" id="overlay2" onclick="closeOverlay2(event)">
+            <div class="overlay2-content">
+                <span class="close-overlay2" onclick="toggleOverlay2()">×</span>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/lgermanistanl/material/c3093769d8b937b52cf68073cf6f279e.jpg" alt="illrise2shine" class="image-content">
+                </div>
+            </div>
+        </div>
+                <div class="footer">
+                    © 2024 Germanistan. All rights reserved. <a href="mailto:bblvlasvl">Contact</a>
+                </div>
+            
+                <script>
+                    function toggleOverlay2() {
+                        const overlay2 = document.getElementById('overlay2');
+                        overlay2.style.display = (overlay2.style.display === 'block') ? 'none' : 'block';
+                    }
+            
+                    function closeOverlay2(event) {
+                        if (event.target === event.currentTarget) {
+                            toggleOverlay2();
+                        }
+                    }
+            
+                    function toggleCarousel() {
+                        const carousel = document.getElementById('carousel');
+                        carousel.style.display = (carousel.style.display === 'block') ? 'none' : 'block';
+                    }
+            
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const carousel = document.getElementById('carousel');
+                        const images = carousel.querySelectorAll('img');
+                        let currentImageIndex = 0;
+            
+                        function showNextImage() {
+                            images[currentImageIndex].style.display = 'none';
+                            currentImageIndex = (currentImageIndex + 1) % images.length;
+                            images[currentImageIndex].style.display = 'block';
+                        }
+            
+                        images[currentImageIndex].style.display = 'block';
+                        setInterval(showNextImage, 3000);
+                    });
+                </script>
+    <div class="rain"></div>
+    <script>
+        const rainContainer = document.querySelector('.rain');
+        const snippets = [
+Yeah, woah-woah-woah-woah-woahh
+Fah, fah, fah (Yeah)
+Hah, ey (Hah), ey (Psyke)
+
+[Part]
+Ich schau' auf die Uhr (Ey, ey, ey)
+Ich schau' auf die Uhr (Shawty, bitte save me)
+Ich schau' auf die Uhr (Ey, ey, yeah, ah)
+Es ist fünf Uhr dreißig
+Ich mach' wieder Songs, denn ich bin schon wieder fleißig (Äh)
+Ich bin twenty-one, aber fühle mich wie dreißig (Ahh)
+Ich geh' in die Mall und ich schau' nicht auf den Preis, aber (Uhh, uh-uh-uh)
+Ich fühl' mich so leer (Uhh, uh-uh-uh)
+Baby, ja, ich mag dich sehr (Uhh, uh-uh-uh)
+Shawty, bitte brich mein Herz (Uhh-woah)
+Das ist, was ich will, das ist alles, was ich will, yeah
+Uhh, uhh, ja, ich nehme meine Glock (Woah, woah)
+Uhh, uhh, und ich ziele in mein'n Kopf (Woah, woah)
+Uhh, uhh, warum ist alles so fucked? (Fucked)
+Up (Up), fuck (Fuck), shit (Fuck), fuck (Fuck)
+Fuck, okay, ich bin wieder low-key
+Down und ich brauch' Seroquel, denn ich bin so gone (Gone)
+Ich bin wieder so geeked und ich schau' auf ein'n Baum (Baum)
+Ich-ich fühl' dabei nix, ja, ich fühl' mich wie im Traum
+Mom, I'm sorry for this shit (I'm sorry, mom)
+Ich wollte nicht so sein, wie ich bin (Ohh, woah)
+        ];
+
+        const createRainDrop = () => {
+            const rainDrop = document.createElement('div');
+            rainDrop.textContent = snippets[Math.floor(Math.random() * snippets.length)];
+            rainDrop.style.left = `${Math.random() * 100}vw`;
+            rainDrop.style.animationDuration = `${Math.random() * 5 + 3}s`;
+            rainDrop.style.fontSize = `${Math.random() * 8 + 8}px`;
+            rainContainer.appendChild(rainDrop);
+
+            rainDrop.addEventListener('animationend', () => {
+                rainDrop.remove();
+            });
+        };
+
+        setInterval(createRainDrop, 100);
+    </script>
+</body>
+</html>
